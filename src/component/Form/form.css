@@ -1,0 +1,59 @@
+.form-container {
+    width: 400px;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  } 
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  } 
+  .error-msg {
+     font-size:0.7rem;
+     margin-top:0.2rem;
+     color: red;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+.cross-btn{
+      float:right;
+      border : none;
+      background-color: transparent;
+      font-size:1.1rem;
+  }
+  form .form-field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0.8rem 0;
+  }
+  form .form-field .form-control{
+    margin-top: 0.3rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.3rem;
+    outline: none;
+  }
+  /* form .form-field textarea{
+    margin-top: 0.3rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.3rem;
+    outline: none;
+  } */
+
+  form .form-field:nth-child(3){
+    flex-direction: row;
+  }
+  form .form-field:nth-child(3) .form-check-control{
+    margin-left:0.3rem;
+  }
+  .css-mhc70k-MuiGrid-root>.MuiGrid-item {
+    margin: 0.3rem 0 !important;
+}

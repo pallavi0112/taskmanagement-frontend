@@ -1,0 +1,86 @@
+.task-section {
+  padding: 2rem;
+}
+.heading {
+  text-align: left;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+.task-items {
+  width: 95%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+
+  /* border-radius: 10px;
+  box-shadow: 5px 5px 10px #bebebec9, -5px -5px 10px #ffffff; */
+
+}
+.task-item {
+  min-height: 200px;
+  max-height: max-content;
+  background-color: #fff;
+  padding: 1rem;
+  text-align: start;
+  position: relative;
+  border-top-width: 3px;
+  border-top-style: solid;
+  /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.45); */
+  border-radius:15px;
+  box-shadow:  5px 5px 9px #cecece,
+               -5px -5px 9px #f2f2f2;
+}
+.task-item .date {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  color: #373737;
+}
+.task-item .title{
+    font-size: 1rem;
+    display: block;
+    margin: 1rem 0 0;
+    text-transform: capitalize;
+}
+.task-item .desc {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    color: #7e7e7e;
+}
+.UpdateInputBx {
+  display: block;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  text-align: start;
+  color: #7e7e7e;
+  border: none;
+  background-color: transparent;
+  outline: 0.5px solid rgba(126, 126, 126, 0.14);
+}
+.iscomplete-box{
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    text-align:start;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.edit_delete {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  text-align: end;
+  width: max-content;
+}
+.edit_delete svg {
+  margin: auto 0.3rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
