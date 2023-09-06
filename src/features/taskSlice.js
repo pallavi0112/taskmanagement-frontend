@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { taskApi } from '../apis'
 
 
-export const GetAllTask = createAsyncThunk('GetAllTask', async (_, rejectWithValue) => {
+export const GetAllTask = createAsyncThunk('GetAllTask', async (token, rejectWithValue) => {
     try{
-        const response = await taskApi.get('/')
+        const response = await taskApi.get('/task/' , {headers : {Authorization :`token ${token}` }})
         console.log(response)
         return response.data
     }
@@ -13,9 +13,10 @@ export const GetAllTask = createAsyncThunk('GetAllTask', async (_, rejectWithVal
     }
   }
 )
-export const CreateTask = createAsyncThunk('CreateTask', async ( data , rejectWithValue) => {
+
+export const CreateTask = createAsyncThunk('CreateTask', async ( payload , rejectWithValue) => {
     try{
-        const response = await taskApi.post('/create' , data, {headers : {"content-type" : "application/json"}})
+        const response = await taskApi.post('/task/create' , payload.values , {headers : {"content-type" : "application/json" , Authorization :`token ${payload.token}`}})
         return response.data
     }
     catch(error){
@@ -25,7 +26,8 @@ export const CreateTask = createAsyncThunk('CreateTask', async ( data , rejectWi
 )
 export const UpdateTask = createAsyncThunk('UpdateTask', async ( payload , rejectWithValue) => {
     try{
-        const response = await taskApi.put(`/update/${payload.id}` , payload.data, {headers : {"content-type" : "application/json"}})
+        const response = await taskApi.put(`/task/update/${payload.id}` , payload.data, {headers : {"content-type" : "application/json" , Authorization :`token ${payload.token}`}})
+        console.log(response)
         return response.data
     }
     catch(error){
@@ -33,9 +35,10 @@ export const UpdateTask = createAsyncThunk('UpdateTask', async ( payload , rejec
     }
   }
 )
-export const DeleteTask = createAsyncThunk('DeleteTask', async ( id , rejectWithValue) => {
+export const DeleteTask = createAsyncThunk('DeleteTask', async (payload , rejectWithValue) => {
     try{
-        const response = await taskApi.delete(`/delete/${id}`, {headers : {"content-type" : "application/json"}})
+        const response = await taskApi.delete(`/task/delete/${payload.id}`, {headers : {"content-type" : "application/json" , Authorization :`token ${payload.token}`}})
+        console.log(response)
         return response.data
     }
     catch(error){
@@ -118,7 +121,7 @@ const tasksSlice = createSlice({
       state.data = action.payload
     })
     builder.addCase(DeleteTask.rejected, (state, action) => {
-      state.error.delete = action.payload.message
+      state.error.delete = action.payload
       state.error.create = ''
       state.error.update = ''
       console.log(action.payload)

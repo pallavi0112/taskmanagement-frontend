@@ -1,10 +1,11 @@
-import React from 'react'
-import Header from '../component/Form/Herosection/Header'
-import HeroSection from '../component/Form/Herosection/HeroSection'
-
+import React, { useEffect, useState } from 'react'
+import Header from '../component/Herosection/Header'
+import HeroSection from '../component/Herosection/HeroSection'
+import TokenNotification from '../CheckToken/TokenNotification'
 const Home = () => {
   return (
     <>
+        <TokenNotification/> 
         <Header/>
         <HeroSection/>
     </>

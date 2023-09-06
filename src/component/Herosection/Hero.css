@@ -33,7 +33,7 @@ header .container {
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
     ),
-    url("../../../assets/bg.jpg");
+    url("../../assets/bg.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;

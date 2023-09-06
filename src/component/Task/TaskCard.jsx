@@ -5,7 +5,7 @@ import { BsFillCheckCircleFill  } from 'react-icons/bs'
 const  TaskCard = ({task , index , EditTask , DeleteTask}) => {
   const i = index;
   const [taskShow , setTaskShow] = useState(false) ;
-  // const [updateVal , setUpdateVal] = useState(props.task);
+  
   const Colors = [
     {
       "bold" : "#FBB701",
@@ -38,14 +38,14 @@ const  TaskCard = ({task , index , EditTask , DeleteTask}) => {
   ]
   return (
     <>
-      <div className='task-item' style={{"border-top-color": Colors[i%(Colors.length)].bold}}>
+      <div className='task-item' style={{"border-top-color": Colors[i%(Colors.length)].bold}} draggable>
         <span className='date' style={{"background-color":Colors[i%(Colors.length)].light}}>{task.createdAt && task.createdAt.split("T")[0]}</span>
          <span className='title'>{task.title}</span>
          <p className='desc'>{task.description}</p> 
          <div className='iscomplete-box'>
          {
           task.Status ?
-         <>Complete<input type='checkbox' checked={task.Status} style={{"accent-color": Colors[i%(Colors.length)].bold , width:"20px" , height:"20px" , color : "#fff" , marginLeft : "0.2rem" }}/></>
+         <>Completed<input type='checkbox' checked={task.Status} style={{accentColor: Colors[i%(Colors.length)].bold , width:"20px" , height:"20px" , color : "#fff" , marginLeft : "0.2rem" }}/></>
          : null
          }
          </div>

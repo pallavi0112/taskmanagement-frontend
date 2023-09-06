@@ -2,9 +2,10 @@
     width: 400px;
     margin: auto;
     padding: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #504e70;
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color:rgba(47, 45, 63,0.75);
+    /* background: #001E2B; */
   } 
   .form-label {
     display: block;
@@ -21,7 +22,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 .cross-btn{
       float:right;
@@ -47,7 +48,7 @@
     border-radius: 0.3rem;
     outline: none;
   } */
-
+   
   form .form-field:nth-child(3){
     flex-direction: row;
   }
@@ -57,3 +58,78 @@
   .css-mhc70k-MuiGrid-root>.MuiGrid-item {
     margin: 0.3rem 0 !important;
 }
+
+.register{
+  max-width :600px;
+  width:100%
+}
+.form-heading{
+  color: var(--bg-text-100);
+  font-weight:350;
+  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+  flex: 0 0 90% !important;
+  width: 100%;
+}
+.form-icon{
+   flex: 0 0 8%;
+   color: var(--bg-text-100);
+}
+form .css-1x51dt5-MuiInputBase-input-MuiInput-input{
+  color: var(--bg-text-100);
+  font-weight: 400 !important;
+}
+form .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border-bottom: 1px solid rgb(186 197 195 / 42%) !important;
+}
+form .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+  border-bottom: 1px solid rgb(186 197 195 / 42%) !important;
+}
+form .css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
+  border-bottom: 2px solid #131229 !important;
+}
+form label{
+  color: #880E4f !important;
+}
+form label span:nth-child(1){
+  padding-left: 22px !important;
+  padding-right: 0.5rem !important;
+}
+.isalreadyExit{
+  float: right;
+  margin: 0.5rem;
+  color: var(--bg-text-100);
+  font-size: 0.8rem;
+  letter-spacing:0.05rem;
+  font-weight:300;
+}
+.isalreadyExit a{
+  color: #880E4f;
+  text-decoration: none;
+  font-weight:600;
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #FFF;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

@@ -9,9 +9,12 @@ import { openForm } from '../../features/commanSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CreateTask, GetAllTask, GetUpdatingData, UpdateTask } from '../../features/taskSlice';
-const useCustomFormikContext = () => useFormikContext();
+import { useCookies } from 'react-cookie';
 const TaskForm = () => {
   const dispatch = useDispatch();
+  const [cookies, setCookie] = useCookies(['taskManagement']);
+  const token = cookies.token ;
+  console.log(token)
   const isopen = useSelector((state) => state.comman.isopen);
   const isupdatebtn = useSelector((state) => state.comman.isupdatebtn);
   const isupdatingdata = useSelector((state) => state.tasks.updatingdata);
@@ -35,15 +38,14 @@ const TaskForm = () => {
   });
 
   const handleSubmit = ( values, { resetForm }) => {
-    console.log(values);
-    dispatch(CreateTask(values));
-    dispatch(GetAllTask())
+    dispatch(CreateTask({values , token}));
+    dispatch(GetAllTask(token))
     resetForm();
     dispatch(openForm({ isopen: false, update: false }));
   };
   const handleUpdate = (values, { resetForm }) => {
-    dispatch(UpdateTask({ id: isupdatingdata._id, data: values }));
-    dispatch(GetAllTask())
+    dispatch(UpdateTask({ id: isupdatingdata._id, data: values , token:token }));
+    dispatch(GetAllTask(token))
     dispatch(GetUpdatingData(null))
     resetForm();
     dispatch(openForm({ isopen: false, update: false }));
